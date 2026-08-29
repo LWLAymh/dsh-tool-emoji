@@ -11,7 +11,7 @@
 | `think`（推理行） | 🤔 |
 | `read` / `web_fetch` / `grep` / `glob` / `web_search` | 🧐 |
 | `pwsh` | 👨‍💻 |
-| `edit` / `str_replace_editor` | ☝️🤓 |
+| `edit` / `write` / `str_replace_editor` | ☝️🤓 |
 | 以上任一卡片出错（error 状态） | 😫 |
 
 ## 效果图

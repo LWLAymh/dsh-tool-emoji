@@ -11,7 +11,7 @@ A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web plugin
 | `think` (reasoning row) | 🤔 |
 | `read` / `web_fetch` / `grep` / `glob` / `web_search` | 🧐 |
 | `pwsh` | 👨‍💻 |
-| `edit` / `str_replace_editor` | ☝️🤓 |
+| `edit` / `write` / `str_replace_editor` | ☝️🤓 |
 | Any of the above cards in the error state | 😫 |
 
 ## Screenshots
