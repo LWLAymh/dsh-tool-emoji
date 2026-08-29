@@ -18,6 +18,7 @@ A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web plugin
 
 <img src="assets/tool-icons-working.png" width="280" alt="Tool icons rendered in the chat">
 <img src="assets/custom-image-icon.png" width="280" alt="Custom uploaded image used as a tool icon">
+<img src="assets/settings-panel.png" width="560" alt="Tool emoji settings panel for customizing emoji and images">
 
 ## Installation
 
