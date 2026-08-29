@@ -1,0 +1,6 @@
+# dsh-tool-emoji bundle patch: add the plugin host row.
+# The client half is picked up automatically from this package's `dsh.client`
+# declaration once this row exists in the loader.
+- insert:
+    - id: dsh-tool-emoji
+      name: dsh-tool-emoji

@@ -1,0 +1,12 @@
+{
+  "name": "dsh-tool-emoji",
+  "description": "Replace DSH web tool icons with emoji: think 🤔, read/search 🧐, pwsh 👨‍💻, edit ☝️🤓, error 😫",
+  "version": "0.1.0",
+  "entry": {
+    "name": "dsh-tool-emoji",
+    "inject": []
+  },
+  "client": {
+    "platform": "web"
+  }
+}
