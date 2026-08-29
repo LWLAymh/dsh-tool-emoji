@@ -47,6 +47,19 @@ dsh plugin --profile web remove dsh-tool-emoji
   - preserves the title, summary, diff, terminal output, expand/collapse behavior, and all other card details.
 - When a mapped card is in the error state, the leading error dot is replaced with 😫 while the rest of the card stays intact.
 
+## Settings / Customization
+
+In the DSH Settings page, open **Tool emoji** to customize every icon without editing code:
+
+- **Enable / disable** each tool icon independently.
+- **Enable / disable** the whole plugin from the master switch.
+- **Custom emoji** — type any emoji/text into the input field.
+- **Upload an image** — choose a local image to use as the icon (kept in `localStorage`, max 1MB per image).
+- **Remove an uploaded image** to fall back to the emoji text.
+- **Reset one tool** or **reset all** back to defaults.
+
+Changes take effect immediately on the chat page and persist after refresh.
+
 ## dsh-edit-guardian compatibility
 
 If you also use `dsh-edit-guardian`, it replaces the built-in rows for `edit` / `str_replace_editor` / `pwsh` with its own custom DOM (`dshg_row`).

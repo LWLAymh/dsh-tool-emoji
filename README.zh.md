@@ -47,6 +47,19 @@ dsh plugin --profile web remove dsh-tool-emoji
   - 工具卡片的标题、摘要、diff、终端输出、折叠/展开等原有行为全部保留。
 - 错误状态仍会保留原卡片，只把 leading 的红色错误点换成 😫。
 
+## 设置 / 自定义
+
+在 DSH 设置页打开 **Tool emoji**，可以不改代码地自定义每个图标：
+
+- 每个工具图标可单独**启用/取消**。
+- 顶部有总开关，可一键**关闭整个插件**。
+- 输入框里可填写任意**自定义 emoji/文字**。
+- 可**上传本地图片**作为工具图标（保存在 `localStorage`，单张限 1MB）。
+- 可**移除已上传图片**，回退到文字 emoji。
+- 支持**单个恢复默认**和**全部恢复默认**。
+
+设置会立即生效，刷新后仍然保留。
+
 ## 与 dsh-edit-guardian 兼容
 
 如果你同时安装了 `dsh-edit-guardian`，它会对 `edit` / `str_replace_editor` / `pwsh` 使用自定义工具行（`.dshg_row`），而不是官方 `DisclosureRow`。
