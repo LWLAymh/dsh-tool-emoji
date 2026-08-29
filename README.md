@@ -14,6 +14,11 @@ A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web plugin
 | `edit` / `str_replace_editor` | ☝️🤓 |
 | Any of the above cards in the error state | 😫 |
 
+## Screenshots
+
+<img src="assets/tool-icons-working.png" width="280" alt="Tool icons rendered in the chat">
+<img src="assets/custom-image-icon.png" width="280" alt="Custom uploaded image used as a tool icon">
+
 ## Installation
 
 ```sh

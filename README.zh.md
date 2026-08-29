@@ -14,6 +14,11 @@
 | `edit` / `str_replace_editor` | ☝️🤓 |
 | 以上任一卡片出错（error 状态） | 😫 |
 
+## 效果图
+
+<img src="assets/tool-icons-working.png" width="280" alt="聊天中的工具 emoji 图标">
+<img src="assets/custom-image-icon.png" width="280" alt="自定义上传图片作为工具图标">
+
 ## 安装
 
 ```sh

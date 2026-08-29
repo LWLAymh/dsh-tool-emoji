@@ -23,10 +23,12 @@
   },
   "files": [
     "lib",
+    "assets",
     "cordis.patch.yml",
     "dsh.plugin.json",
     "README.md",
     "README.zh.md",
+    "screenshots.json",
     "LICENSE"
   ],
   "keywords": [
