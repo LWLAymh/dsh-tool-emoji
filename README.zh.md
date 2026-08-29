@@ -16,8 +16,8 @@
 
 ## 效果图
 
-<img src="assets/tool-icons-working.png" width="280" alt="聊天中的工具 emoji 图标">
-<img src="assets/custom-image-icon.png" width="280" alt="自定义上传图片作为工具图标">
+<img src="assets/tool-icons-working.png" width="180" alt="聊天中的工具 emoji 图标">
+<img src="assets/custom-image-icon.png" width="180" alt="自定义上传图片作为工具图标">
 <img src="assets/settings-panel.png" width="560" alt="工具 emoji 设置面板，可自定义 emoji 和上传图片">
 
 ## 安装
