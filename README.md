@@ -1,74 +1,83 @@
 # dsh-tool-emoji
 
-把 DeepSeek Harness Web 里工具卡片的简单图标换成 emoji，同时**保留原工具卡片的全部内容**。
+[中文](README.zh.md)
 
-当前默认映射：
+A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web plugin that replaces the simple leading icons in tool cards with emoji, **without replacing or removing any of the original card content**.
 
-| 工具 | Emoji |
+## Mapping
+
+| Tool | Emoji |
 |---|---|
-| `think`（推理行） | 🤔 |
+| `think` (reasoning row) | 🤔 |
 | `read` / `web_fetch` / `grep` / `glob` / `web_search` | 🧐 |
 | `pwsh` | 👨‍💻 |
 | `edit` / `str_replace_editor` | ☝️🤓 |
-| 以上任一卡片出错（error 状态） | 😫 |
+| Any of the above cards in the error state | 😫 |
 
-## 安装
+## Installation
 
 ```sh
-# 本地 checkout
+# from a local checkout
 dsh plugin --profile web add file:./dsh-tool-emoji
 
-# 或 GitHub
+# or from GitHub
 dsh plugin --profile web add git+https://github.com/LWLAymh/dsh-tool-emoji.git
 ```
 
-然后重启 Web profile：
+Then restart the web profile:
 
 ```sh
 dsh --profile web
 ```
 
-## 实现原理
+The plugin does not hot-reload into an already-running Web process.
 
-- 不注册 `tool.call.toolview`，因此不会替换原始工具卡片。
-- 只注入一层全局 CSS：
-  - 隐藏内置 SVG 图标；
-  - 在同一个 leading cell 上用 `::before` 显示 emoji；
-  - 工具卡片的标题、摘要、diff、终端输出、折叠/展开等原有行为全部保留。
-- 错误状态仍会保留原卡片，只把 leading 的红色错误点换成 😫。
+Uninstall:
 
-## 与 dsh-edit-guardian 兼容
+```sh
+dsh plugin --profile web remove dsh-tool-emoji
+```
 
-如果你同时安装了 `dsh-edit-guardian`，它会对 `edit` / `str_replace_editor` / `pwsh` 使用自定义工具行，而不是官方 `DisclosureRow`。
+## How it works
 
-为了让 emoji 也覆盖这些自定义行，需要：
+- This plugin does **not** register `tool.call.toolview`, so it does not take over the original tool cards.
+- It only injects a small global stylesheet:
+  - hides the built-in leading SVG icon;
+  - renders an emoji in the same leading cell with `::before`;
+  - preserves the title, summary, diff, terminal output, expand/collapse behavior, and all other card details.
+- When a mapped card is in the error state, the leading error dot is replaced with 😫 while the rest of the card stays intact.
 
-1. 你的 `dsh-edit-guardian` 版本为自定义 `.dshg_row` 暴露了 `data-tool` 属性（本地开发版已支持）；
-2. 按你安装 `dsh-edit-guardian` 的方式重新安装它，并重新安装本插件；
-3. 重启 Web。
+## dsh-edit-guardian compatibility
 
-如果 `dsh-edit-guardian` 没有更新到带 `data-tool` 的版本，`edit` / `pwsh` 的 emoji 不会生效。
+If you also use `dsh-edit-guardian`, it replaces the built-in rows for `edit` / `str_replace_editor` / `pwsh` with its own custom DOM (`dshg_row`).
 
-## 自定义
+To make the emoji apply to those custom rows too:
 
-修改 `lib/client.js` 里的 CSS 即可增删工具和 emoji。
+1. Use a `dsh-edit-guardian` build that exposes `data-tool` on `.dshg_row` (the local dev version already does);
+2. Reinstall `dsh-edit-guardian` using the same source you installed it from, then reinstall this plugin;
+3. Restart the Web profile.
 
-例如给 `bash` 也加一个：
+If `dsh-edit-guardian` does not have the `data-tool` attributes, the emoji will not be applied to `edit` / `pwsh` rows.
+
+## Customization
+
+Edit the CSS in `lib/client.js` to add or change tools and emoji.
+
+For example, to add `bash`:
 
 ```css
 [data-variant="bash"] > span:first-child > span:first-child svg:not([data-state]) { display:none; }
 [data-variant="bash"] > span:first-child::before { content:"💻"; font-size:14px; line-height:18px; }
 ```
 
-## 注意
+## Notes
 
-选择器基于官方源码中的稳定 data attribute：
-
-- `data-tool="edit"` / `data-tool="str_replace_editor"` / `data-tool="pwsh"`
-- `data-variant="think"` / `data-variant="search"`
-- `[data-disclosure-row] > span:first-child`
-
-如果后续 DSH 更新改变了这些 DOM 结构，CSS 选择器可能需要同步调整。
+- The selectors rely on official source-level data attributes:
+  - `data-tool="edit"` / `data-tool="str_replace_editor"` / `data-tool="pwsh"`
+  - `data-variant="think"` / `data-variant="search"` / `data-variant="read"`
+  - `[data-disclosure-row] > span:first-child`
+- If a future DSH version changes these DOM structures, the CSS selectors may need to be updated.
+- The plugin is Web-profile oriented; TUI/headless profiles have no leading-icon UI surface.
 
 ## License
 
