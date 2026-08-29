@@ -60,7 +60,7 @@ dsh plugin --profile web remove dsh-tool-emoji
 - 每个工具图标可单独**启用/取消**。
 - 顶部有总开关，可一键**关闭整个插件**。
 - 输入框里可填写任意**自定义 emoji/文字**。
-- 可**上传本地图片**作为工具图标（保存在 `localStorage`，单张限 1MB）。
+- 可**上传本地图片**作为工具图标（仅支持 PNG/JPEG/GIF/WebP/BMP，保存在 `localStorage`，单张限 1MB，不接受 SVG）。
 - 可**移除已上传图片**，回退到文字 emoji。
 - 支持**单个恢复默认**和**全部恢复默认**。
 

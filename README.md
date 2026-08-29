@@ -60,7 +60,7 @@ In the DSH Settings page, open **Tool emoji** to customize every icon without ed
 - **Enable / disable** each tool icon independently.
 - **Enable / disable** the whole plugin from the master switch.
 - **Custom emoji** — type any emoji/text into the input field.
-- **Upload an image** — choose a local image to use as the icon (kept in `localStorage`, max 1MB per image).
+- **Upload an image** — choose a local PNG/JPEG/GIF/WebP/BMP to use as the icon (kept in `localStorage`, max 1MB per image; SVG is not accepted).
 - **Remove an uploaded image** to fall back to the emoji text.
 - **Reset one tool** or **reset all** back to defaults.
 
